@@ -6,8 +6,7 @@
 
 ## entity framework core
 了解了如何通过端点工具 添加nugetpack，并且添加ef tools
-<img width="1198" height="171" alt="image" src="https://github.com/user-attachments/assets/2b231eef-2567-40bf-b016-e67d02f6c291" />
-
+7839773fcdeb95898007cf0d8bb79d4a9b60dd634be9971b5f8ed0d348e940e8.png
 连接如何通过命令添加生成migrations 文件 并通过codeFirst方式将对象映射成到数据库中的表
 - dotnet ef migrations add initial
 - dotnet ef database update
