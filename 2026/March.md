@@ -4,7 +4,7 @@
 
   提供cdn链接 用于访问css和js， 
 
-## AddHttpClient
+## MVC-AddHttpClient
 <img width="800" height="219" alt="image" src="https://github.com/user-attachments/assets/d1026677-0c9e-4d06-be57-1925cb552380" />
 
 往服务池里注册httoclient服务，httpClient：能够通过登录第三方api，并通过依赖注入的方式来调用
