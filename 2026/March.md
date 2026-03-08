@@ -15,7 +15,7 @@
   前台线程：new Thread创建的都为前台线程，只要存在前台线程程序就不会关闭
 
 
-**Task.Wait(taskA,TaskB);**
+**Task.WaitAll(taskA,TaskB);**
 - 1 返回值类型为void（同步方法），
 - 2 同步等待，阻塞线程直到所有任务完成，
 - 3 如果内部有异常会在wait all结束后抛出。（异常会被收集在AggregateException中）
