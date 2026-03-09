@@ -1,4 +1,61 @@
-#### 03.08 Multi Threading
+
+## 03.09
+## webAPi
+native AOT 原生，编译时可以编译为本机代码（性能要求很高的类库，底层是C++）
+**控制器与路由**
+一个类继承于ControllerBase那么就具有了控制器的能力和行为
+
+**如何在项目中调用访问其他api**
+
+Program.cs 启动  
+↓  
+AddHttpClient("ShirtsApi") 注册配置  
+↓  
+DI容器保存配置  
+↓  
+某处请求 HttpClient  
+↓  
+httpClientFactory.CreateClient("ShirtsApi")  
+↓  
+框架创建 HttpClient  
+↓  
+执行 client => {...}  
+↓  
+返回配置好的 HttpClient
+
+1.  配置
+通过AddHttpClient向builder容器添加名为“ShirtsApi” 的HttpClient配置规则 ，
+*返回IHttpClientBuilder（配置对象）类型可以用来进行链式调用，不过这里被忽略了*
+```
+//注册HttpClient服务，命名为ShirtApi，设置基础地址和默认请求头
+builder.Services.AddHttpClient("ShirtsApi", client =>
+{ 
+    client.BaseAddress=new Uri("https://localhost:7025/api/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
+
+```
+
+2. 依赖注入-通过构造函数
+```
+private const string apiName = "ShirtsApi";
+private readonly IHttpClientFactory httpClientFactory;
+
+public WebApiExecuter(IHttpClientFactory httpClientFactory)
+{   
+    this.httpClientFactory = httpClientFactory;
+}
+```
+3. 创建对应不同http动词的不同方法
+~~~
+ public async Task<T?> InvokeGet<T>(string relativerUrl)
+ {   
+     var httpClient = httpClientFactory.CreateClient(apiName);
+     return await httpClient.GetFromJsonAsync<T>(relativerUrl);
+ }
+~~~
+
+## 03.08 Multi Threading
 **多线程的缺点
 - 缺乏原子性  
 什么是原子性：单线程下任务要么执行完成，要么执行过程不被其他因素打断，要么完全不执行。
@@ -64,7 +121,7 @@ lock  锁住资源 只能有一个线程访问到资源 其他任务排队等待
   
 
 
-# 03.05
+## 03.05
 ## bootstrap
 <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/1f07112a-c51b-48c6-960b-dc6faa97b8a1" />     
 
@@ -83,7 +140,7 @@ lock  锁住资源 只能有一个线程访问到资源 其他任务排队等待
      <img width="399" height="257" alt="image" src="https://github.com/user-attachments/assets/8d3c2478-bad1-4c41-811a-05e41860a032" />
 
    
-# 03.03
+## 03.03
 ## entity framework core
 - dotnet ef  migrations add Initial  
   确保在add后使用大写字母开头的单词 
@@ -95,7 +152,7 @@ lock  锁住资源 只能有一个线程访问到资源 其他任务排队等待
 - 路由 Routing  
   -解析URL决定将请求转到哪个控制器Controller，及操作方法 action
 
-# 03.02
+## 03.02
 ## entity framework core
 了解了如何通过端点工具 添加nugetpack，并且添加ef tools
 <img width="1198" height="171" alt="image" src="https://github.com/user-attachments/assets/546ef25c-fef9-43ee-8b8c-b247d40ec1df" />
