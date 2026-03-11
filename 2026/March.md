@@ -1,3 +1,27 @@
+## 3.11 MVC 创建表单
+**Bootstrap**
+~~~
+<a class="btn btn-primary">
+~~~
+这里的‘a’ 代表超链接 ，通过在html标签 class属性中添加特定的字符串 ，告诉浏览器
+按Bootstrap定义好的规则来渲染这个按钮
+
+Css可以改变如何标签的外观
+
+**Tag helper**
+允许在View(html)中使用类似HTML 标签的语法来编写服务器端代码
+~~~
+<a href="/Shirt/Details/5">查看详情</a> 
+
+<a asp-controller="Shirt" asp-action="Details" asp-route-id="5">查看详情</a>
+~~~
+这个超文本链接显示‘查看详情’，
+href是根据路径去访问控制器和方法，而taghelper是根据目的地 自动生成路径
+*访问控制器的URL（路径）可以由我们自定义，哪怕URL中不带控制器名称*
+
+虽然dotNET core路由默认不区分大小写，但是在编写代码和配置路由时保持首字母大写（PascalCse）是微软官方的推荐方法
+
+
 ## 03.10 WebApi
 
 ~~~
