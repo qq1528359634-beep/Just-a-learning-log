@@ -1,3 +1,41 @@
+## 3.12 MVC 创建表单及表单验证
+**MVC**    
+能够返回View方法的前提是 类必须是Controller类的子类
+如何添加衬衫创建表单Form
+在MVC view中如果有用到tagHelper则会显示为绿色
+
+成对标签和单个标签  
+成对标签是容器  有内容  
+单个标签是插件或者指令 本身就是内容  
+
+~~~
+<span class="text-danger" asp-validation-for="Size"></span>
+~~~
+ 属性验证 为单个属性准备 与span配套使用  
+
+~~~
+protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+~~~
+vlaue是只附加验证的那个属性的值  例如Size   
+ValidationContext是传进来的整个对象   
+
+**Others**
+| **`(int)obj`**        | 
+| **`Convert.ToInt32`**| 
+| **`int.TryParse`**    | string转整形
+| **`obj as int?`**     | 
+几种转整形的方法   
+括号强转  
+double转换成int会丢失小数部分  
+unboxing 拆箱只能转换成原来的类型 负责会抛出InvalidCastException异常   
+
+顶级语句遇到class namespace enum struct 就结束，顶级语句默认在 static void Main()中
+~~~
+static void Main(string[] args)
+{
+顶级语句
+}
+
 ## 3.11 MVC 创建表单
 **Bootstrap**
 ~~~
