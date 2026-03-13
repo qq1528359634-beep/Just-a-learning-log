@@ -1,3 +1,25 @@
+## 3.13 WebApi
+- 如何做自己的API
+控制器继承于父类ControllerBase
+- 构建器 和app配置
+~~~
+var builder = WebApplication.CreateBuilder(args);
+
+// 1. 注册控制器服务 (必选)
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// 2. 配置中间件管道 (顺序也很重要)
+app.UseHttpsRedirection();
+app.UseAuthorization();
+
+// 3. 映射控制器路由 (必选)
+app.MapControllers();
+
+app.Run();
+~~~
+
 ## 3.12 MVC 创建表单及表单验证
 - **MVC**    
 能够返回View方法的前提是 类必须是Controller类的子类
