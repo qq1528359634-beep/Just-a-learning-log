@@ -1,3 +1,127 @@
+## 3.16 CSS
+- css用于设置元素的特征（决定样式）
+- css一般写在3个地方
+   1. 元素标签的style 属性中设置
+~~~
+<div style=" width: 100px; height: 100px; background-color: forestgreen">div</div>
+~~~
+   2. html文档的<style></style> 标签中设置
+   ~~~
+   style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: brown
+        }
+    </style>
+   ~~~
+   3. 在.css文件中设置
+~~~
+<!--在头文件中引用已经定义好了的css-->>
+<link rel="stylesheet" href="demo.css">
+
+<!--定义css文件-->
+p {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+}
+~~~
+- 通过元素id属性获取
+  - css根据id获取标签，需要在id名前添加 #
+~~~
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: brown
+    }
+
+    #div1 {
+        width: 100px;
+        height: 100px;
+        background-color: blue
+    }
+</style>
+~~~
+- 通过元素class属性获取
+~~~
+<div class="div-test">div</div> 
+<div class="div-test">div</div>
+
+<style>
+    .div-test {
+        width: 100px;
+        height: 100px;
+        background-color: cyan
+    }
+</style>
+~~~
+- 其他选择器
+  - 空格 所有子集（包括子集中的子集）
+~~~
+<style>
+    .test1 div {
+        border-width: 2px;
+        border-style: solid;
+        border-color: forestgreen;
+        color: blue;
+    }
+
+    .test2 > div {
+        border-width: 2px;
+        border-style: solid;
+        border-color: forestgreen;
+        color: blue;
+    }
+</style>
+~~~
+- 父级>子集 父级下面的子一级标签
+-  .test3~.test4  test3以后的所有同级test4
+- **伪类选择器**
+  - 鼠标徘徊选择器 .ul-test li:hover   hover经过就改变样式
+  - .ul-test li:active   点下去改变样式
+  - a:visited  浏览过改变样式
+- **CSS优先级**
+  - style属性中定义样式优先级最高
+  - 就近原则
+  - id选择器>class选择器>标签选择器
+#### 常用样式
+- **盒子模型**
+  - 标签元素排列规则是 *从左往右 从上往下*
+   ![[Pasted image 20260315171601.png|196]]
+  蓝颜色是真正可以写字的部分，浅一点的黄颜色是边框，绿色是可写字部分和边框的距离
+称为内边距，margin外边距
+- 盒子的水平排列
+ ![[Pasted image 20260315171944.png|421]]
+- 盒子的垂直排列
+ ![[Pasted image 20260315172140.png|220]]
+ - **盒子样式**
+   - margin  4个参数上左下右，2个 上下 左右
+- **文本样式**
+~~~
+ <style>
+     div {
+         font-family: "微软雅黑";
+         font-size: 20px;
+         font-weight: bold;
+         text-align: center;
+         background-color: lightblue;
+         height: 100px;
+         line-height: 5;
+     }
+
+     s {
+         text-decoration: none;
+     }
+
+     a {
+         text-decoration: none;
+         color: red;
+     }
+ </style>
+~~~
+
 ## 3.15 Html
 **列表标签**
 - **无序列表**
