@@ -1,3 +1,60 @@
+## 3.17  CSS
+### 背景样式
+- background-image 设置背景图片
+- background-repeat 设置背景重复
+- background-position:top left；第一个值是Y轴上，第二个值是X轴上
+- background-size 设置背景图片大小
+~~~
+<style>
+     div {
+        width: auto;
+        height: 600px;
+        border: 1px solid red;
+        background-image: url("C:\\Users\\15283\\source\\repos\\htmldemo\\header.png");
+        background-repeat: no-repeat;
+        background-position:top left ;
+        background-size: cover;
+     }
+    </style>
+~~~
+### 图片样式
+- vertical-align 其他元素相对于图片的对齐方式
+~~~
+<style>
+        img{
+            vertical-align: top;
+        }
+    </style>
+~~~
+### 布局样式
+- 文档流
+  - 既文档的排列方式：在同一个平面中 从左往右，从上往下排列
+- 脱离文档流 简单理解为盒子脱离原有的文档排列浮起来，从同一平面浮起来，根据一定的要求排列。
+- 浮动
+  - float：left | right
+~~~
+style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: aquamarine;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div style="background-color: chocolate;float: left; margin-left: 10px; margin-right: 10px;"></div>
+    <div style="float: left;  margin-right: 10px;"></div>
+    <div style="float: left; margin-right: 10px;"></div>
+    <!--给最后一个方块设置清除浮动 不受前面浮动的影响-->
+    <div style="clear:both"> </div>
+</body>
+~~~
+### 菜单栏和电商物品选择实现
+
 ## 3.16 CSS
 - css用于设置元素的特征（决定样式）
 - css一般写在3个地方
