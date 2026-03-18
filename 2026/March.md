@@ -8,12 +8,12 @@
   - sticky 粘滞定位，滚动界面当标签相对于浏览器界面 等于指定定位时 标签粘滞
 ### 盒子的层次
 - **z-index 数值越高标签越在上层**
-  -  ~~~
+  ~~~
     <body>
     <div style="background-color: thistle; z-index: 10;"></div>
     <div style="background-color: aquamarine;z-index: 11;"></div>
     </body>
-       ~~~
+  ~~~
 - **呈现形式 display：none | block | inline | inline-block**
   - block 块级标签 可设置宽 ,高，元素独占一行
   - inline 行级标签 不可设置宽，高，元素自适应内部内容
