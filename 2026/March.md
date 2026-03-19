@@ -1,3 +1,35 @@
+## 3.19 Javascript
+- **JavaScript基础**
+  JavaScript和java是完全不同的东西，只是名称类似
+- **JavaScript写在哪里**
+  - head部分：用于声明变量，函数，类型，为事件绑定处理函数
+  - body部分：调用脚本执行
+  - 外部脚本：用于定于函数，类型 
+     -将代码封装在一个js文件中，在需要的地方引用，完成一次定义，多出引用的效果，简化代码维护
+     -在文件中不需要写标签
+- **基本语法**
+  - 大小写敏感
+  - 弱类型语言 ~大型项目后期难维护
+  - 分句结尾
+  - 注释（单行  多行 方法） 
+  - 字符串既可以用单引号 也可以用双引号
+    ~~~
+//var s="helloWorld!"
+/*var s="helloWorld!"
+var s="helloWorld!"
+var s="helloWorld!"*/
+var s="helloWorld!";
+
+fun1 (12)
+/**
+ * 方法一
+ * @param {string} param1 这是参数一
+ */
+function fun1(param1){
+
+}
+    ~~~
+	
 ## 3.18 CSS
 ### 定位
 - position: absolute | 
