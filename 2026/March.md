@@ -13,7 +13,7 @@
   - 分句结尾
   - 注释（单行  多行 方法） 
   - 字符串既可以用单引号 也可以用双引号
-    ~~~
+~~~
 //var s="helloWorld!"
 /*var s="helloWorld!"
 var s="helloWorld!"
@@ -28,7 +28,7 @@ fun1 (12)
 function fun1(param1){
 
 }
-    ~~~
+~~~
 	
 ## 3.18 CSS
 ### 定位
