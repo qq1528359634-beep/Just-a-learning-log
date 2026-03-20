@@ -1,3 +1,143 @@
+## 3.20 JS集合
+### 数组
+#### 数组的定义 赋值
+  ~~~
+     <script>
+        var array=new Array(1);
+        array[0]=1;
+        array[1]="Hello";
+        console.log(array);
+
+        var array1=[];
+        array1[0]=1;
+        array1[1]="Hello";
+        console.log(array1);
+
+        var array2=[1,"hello"];
+        console.log(array2);
+    </script>
+  ~~~
+#### 键值对
+  ~~~
+   <script>
+        var kv={};
+        console.log(kv);
+        kv["a"]="A";
+        kv["b"]="B";
+        console.log(kv);
+        kv.c="C";
+        kv.d="D";
+        console.log(kv);
+        
+        var kv2={a:"A"};
+        console.log(kv2);
+
+        var kv3;
+        kv3=kv2;
+        console.log(kv3);
+    </Script>
+  ~~~
+#### 对象数组
+  - JS对象和Json对象的区别
+  ~~~
+   var kv1={a:"A",b:"B"};//js对象
+
+   var kv2={"aa":"AA","bb":"BB"};//Json格式对象
+  ~~~
+#### Array 对象属性
+ - length 设置或返回数组中元素的数目
+#### Array 对象方法
+- contact（）连接2个或者更多数组并返回结果
+- join（）把数组的所有元素放入一个字符串 。元素通过指定的分隔符进行分隔
+- push（）向数组的末尾添加一个或更多元素，并返回新的长度
+- reverse（）颠倒数组中的元素顺序
+- sort（）对数组中的元素进行排序
+- splice（）删除元素，并向数组添加元素
+   splice 3个参数  第一个参数要删除的元素下标  第二个 要删除后面几个元素 第三个 要插入的内容
+~~~
+ <script>
+        //splice 删除元素，并向数组添加元素
+        //1.删除一个元素
+        var ar1=[1,2,3,4]
+        ar1.splice(1,1);
+        console.log(ar1);
+        //2.删除多个元素
+        var ar2=[1,2,3,4]
+        ar2.splice(1,2);
+        console.log(ar2);
+        //3.删除指定元素之后的所有元素
+        var ar3=[1,2,3,4]
+        ar3.splice(1);
+        console.log(ar3);
+        //4.添加元素  添加于下标之前
+        var ar4=[1,2,3,4]
+        ar4.splice(0,0,0)
+        console.log(ar4);
+        //5.替换元素（删了添加）
+        var ar4=[1,2,3,4];
+        ar4.splice(1,1,111);
+        console.log(ar4);
+    </script>
+~~~
+#### 类型转化
+- parseInt  parseFloat
+~~~
+ <script>
+        var str="9876.6";
+        var num=parseInt(str);
+        console.log(num);
+        num=parseFloat(str);
+        console.log(num);
+        console.log(typeof(num));
+    </script>
+~~~
+#### 方法使用
+- 使用关键字function 定义方法
+- 方法名使用驼峰法命名（lowerCamelCase）
+- 方法可以设置参数及返回值
+    - js是弱类型语言 方法参数无需指定变量类型
+    - 方法返回值关键字return 后如果不跟返回内容，则简单理解为中断方法执行
+    - js中不存在方法重载,"重载"会覆盖之前的方法
+    - 从方法中获取参数还可以用argument 关键字 他是一个数组
+~~~
+<script>
+        function add(a,b){
+       if(a>1&&b>1) return a+b;
+       return;
+        };
+        var c=add(2,3);
+        console.log(c);
+    </script>
+~~~
+#### 匿名方法
+- 匿名方法  不需要写方法名的方法
+- 匿名方法的2种写法
+  - 在方法中调用
+~~~
+ <script>
+    //匿名方法
+  var fun = function(p1){
+        alert(p1);
+    };
+   // fun("helloWorld");
+    //使用匿名方法
+    var ar1=[2,1,5,3,4]
+    var sortFun=function(a,b){
+        return b-a;
+    }
+    ar1.sort(sortFun);
+    console.log(ar1);
+ </script>
+~~~
+  - 直接调用匿名方法
+~~~
+//直接调用匿名方法
+  (function (a,b){
+   console.log(a+b);
+  })(1,2);
+ </script>
+~~~
+
 ## 3.19 Javascript
 - **JavaScript基础**
   JavaScript和java是完全不同的东西，只是名称类似
