@@ -1,3 +1,80 @@
+## 3.21 JS操作标签样式
+### 操作style属性
+- style属性可以设置或放回样式
+- style属性css特征值时，需要把特征的 短横线命名法改为驼峰命名法后使用
+	- float时js的保留关键字，设置标签float属性时写cssFloat
+	~~~
+	<body>
+    <p id="p1">Hello World!</p>
+    <p id="p2">Hello World!</p>
+    <input type="button" id="button1" value="change">
+    <script>
+        document.getElementById("button1").onclick=function(){
+            // 通过js给标签赋予样式
+            document.getElementById("p1").style.backgroundColor="green";
+            document.getElementById("p1").style.color="blue";
+            document.getElementById("p1").style.fontFamily="Arial";
+            document.getElementById("p1").style.fontSize="20px";
+            document.getElementById("p1").style.cssFloat="right";
+            //通过js获取标签样式
+            var backColor=document.getElementById("p1").style.color;
+            console.log(backColor);
+        }
+    </script>
+	~~~
+### 操作className属性
+- className 属性设置或返回元素的class属性
+	- 获取属性值：HTMLElementObject.className
+	- 设置属性值：HTMLElementObject.className=classname
+	~~~
+	 <script>
+        document.getElementById("button1").onclick=function(){
+	         document.getElementById("p1").className="ppp";
+            alert(document.getElementById("p1").className);
+        }
+    </script>
+	~~~
+	- 获取标签对象
+		~~~
+		    //通过标签名获取标签对象集合
+            var els=document.querySelectorAll("p");
+            //通过class获取标签对象集合
+            var els=document.querySelectorAll(".pp");
+            //通过id获取标签对象集合
+            var els=document.querySelectorAll("#pp");
+		~~~
+### BOM
+- BOM 即Browser Object Model，用于控制浏览器行为，
+- 操作BOM对象，一般使用window关键字调用
+**常用方法**
+- alert()：弹出提示对话框
+- confirm（）:弹出确认对话框，返回bool值类型
+~~~
+  var result=confirm("您确定要关闭浏览器吗");
+        if (result) {
+            alert("关闭浏览器");
+            window.close();
+        } else {
+            alert("保持浏览器开启")
+        }
+~~~
+- prompt（）：弹出用户输入对话框，返回输入的内容，如果取消输入则返回null
+~~~
+var text=prompt("please input content！"); 
+        alert(text);
+~~~
+- setInterval (code.milliseconds);计时器按照指定的周期来调用函数或者表达式
+~~~ var i=0;
+       var setIntervalId= setInterval(() => {
+            console.log(++i);
+        }, 1000);
+        function clearTime(){
+            clearInterval(setIntervalId);
+        };
+        document.getElementById("button1").onclick=clearTime;
+
+~~~
+
 ## 3.20 JS集合
 ### 数组
 #### 数组的定义 赋值
