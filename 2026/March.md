@@ -1,3 +1,39 @@
+## 3.23 JS Csharp混讲
+- JS中的some方法等价于C#中any方法
+- JS中的Filter方法  返回集合中所有符合条件的对象
+~~~
+//filter方法
+us=strList.filter(m=>m=="Taro");
+//手写filter方法
+function myFilter(array,fun){
+  let newArray=[];
+  for (let index = 0; index < array.length; index++) {
+       var item = array[index];
+       var bool=fun(item);
+       if(bool) newArray.push(item); 
+  }
+  return newArray;
+}
+~~~
+- Csharp中的FindAll方法
+~~~
+var str= striList.FindAll(m=>m=="Ace");
+//手写FindAll方法
+static class Extension
+{
+    static public List<T> MyFindAll<T>(this List<T> list, Func<T, bool> func)
+    {
+        List<T> newList = new();
+        foreach (var item in list)
+        {
+            if (func(item)) newList.Add(item);
+
+        }
+        return newList;
+    }
+}
+~~~
+
 ## 3.21 JS操作标签样式
 ### 操作style属性
 - style属性可以设置或放回样式
