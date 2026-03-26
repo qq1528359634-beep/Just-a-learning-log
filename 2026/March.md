@@ -1,3 +1,50 @@
+## 3.26 TypeScript
+~~~
+/数组
+let arr1:number[]=[1,2,3,4,5];
+let arr2:Array<number>=[1,2,3,4,5]
+//元组 Tuple
+//这以后只能前一个是字符串，后一个是数字
+let dg:[string,number,string];
+dg=["hello",10,"string"]; 
+console.log(dg[0]);
+console.log(dg[1]);
+console.log(dg[2]);
+
+//枚举类型
+enum Color {Red,Green,Blue};
+let c1:Color=Color.Green;
+console.log(c1);
+console.log(Color);
+
+enum Color1{Red,Blue=100,yellow}
+let c2:Color1=Color1.yellow;
+console.log(c2);
+
+//any=>dynamic
+//少用any类型
+let any:any="Hello";
+any=1;
+any=false;
+any=100;
+let num:number=any.toFixed();
+console.log(num);
+
+//object 
+let objectOne:Object=9;
+objectOne="Hello";
+objectOne=false;
+//object不能使用toFixed方法
+//objectOne.toFixed();
+
+let list:any=[1,"Cks",3,4,5];
+console.log(list[1]);
+
+//void
+let voidValue:void=undefined;
+let u:undefined=undefined;
+let n:null=null;
+~~~
 ## 3.25 TypeScript
 - 确保已按照node.js 且设置系统允许运行脚本
 ~~~
