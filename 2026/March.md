@@ -1,3 +1,42 @@
+## 3.30 Vue3
+- 从外部引入脚本 ，或者直接引用脚本网址都可以
+	~~~
+	<script src="./vue3.global.js"></script>
+	~~~
+- 挂载渲染节点
+- button标签中通过@来触发方法
+- 要动态修改对象值，需要用ref和. value来修饰
+~~~
+<div id="indexPage">
+    <!-- 插值表达式，将脚本中返回的message值，填入这个变量-->
+    {{message}}
+    <button @click="changeText">ChangeData</button>
+  </div>
+  <script>
+    //从右边对象中找到名为createApp的属性并赋值给同名变量
+    const {createApp,ref}=Vue;
+   const app= createApp({
+   //这里的setup与生命周期相关，在vue3中绝大多数逻辑代码
+   //都写在setup中
+      setup(){
+        const message=ref("hello World!");
+        const changeText=()=>{
+          message.value="GoodBye World!";
+        }
+        return{
+          message,
+          changeText
+        } 
+      }
+    })
+    //挂载点选择器
+    app.mount("#indexPage");
+~~~
+- node js的运行环境，npm插件安装管理库
+- npm -v 查看当前npm版本
+- node -v 查看当前node版本
+- vue -v查看Vue CLI (Command Line Interface)版本
+
 
 ## 3.28 TS
 ### 常量
