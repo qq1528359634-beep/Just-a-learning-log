@@ -1,3 +1,16 @@
+## 3.31 Vue3
+### NPM方法创建项目
+- npm install -g @vue/cli 往电脑里安装vue施工队
+- vue create myproject --在npm前端中，不能使用大写命名项目，可以使用中划线或者下划线的方式命名
+- npm run server
+### vue ui创建项目
+ - powershell 运行命令vue ui
+
+### 使用vite创建项目 推荐使用这个
+- npm create vite@latest
+- npm install 安装依赖包
+- npm run dev
+
 ## 3.30 Vue3
 - 从外部引入脚本 ，或者直接引用脚本网址都可以
 	~~~
