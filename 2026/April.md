@@ -1,3 +1,26 @@
+## 04.08 webApi
+- 一个程序中不能有2个一模一样的路由
+- 需要通过不同动词或者路由结尾区分
+~~~
+//设置路由地址的两种方式
+//通过通配路由设置 路由地址等于方法名
+[Route("api/[Controller]/[Action]")]
+[ApiController]
+
+//通过动词中指定路由地址
+[Route("api/[controller]")]
+[ApiController]
+public class MyNewTwoController : ControllerBase
+{
+    [HttpPost("A")]
+~~~
+- 要求路由地址必须要带参数
+~~~
+//在地址中 大括号带参数
+ [HttpGet("GetUserName/{id}/{showCN}")]
+ public string GetUserName(long id, string? showCN)
+~~~
+
 ## 04.07 webApi
 - webApi中的Query传参
 	~~~
