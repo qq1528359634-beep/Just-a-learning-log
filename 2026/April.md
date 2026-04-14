@@ -1,3 +1,28 @@
+## 04.14 webApi
+### 过滤器获取context上下文信息
+~~~
+    public class MyActionFilterAttribute :Attribute,IActionFilter
+    { 
+        //在Action方法执行之后执行
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+            var result=context.Result as ObjectResult;
+            //想要拿到方法返回的结果，需要将Result转化成ObjectResult
+            Console.WriteLine("Action方法执行之后"+ result.Value);
+        }
+
+        //在Action方法执行之前执行   
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            var argDic=context.ActionArguments;
+            //方法传入参数中声明id，则可以在方法所在语句块中使用
+            var isSuccess=argDic.TryGetValue("id", out object? id);
+        
+            Console.WriteLine($"Action方法执行前，请求的参数有{id}");
+        }
+    }
+~~~
+
 ## 04.13 webApi 过滤器
 - AOP面向切面编程
 - Action Filter 过滤器
