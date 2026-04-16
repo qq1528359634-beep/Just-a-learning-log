@@ -1,3 +1,24 @@
+## 04.16 webApi-管道短路器
+- 若context.Result已经有结果则直接返回结果
+- 不经过Action也不经过Filter
+~~~
+ ObjectResult _result=null;
+  public void OnResourceExecuted(ResourceExecutedContext context)
+  {
+      _result = context.Result as ObjectResult;
+     context.HttpContext.Items.Clear();   
+  }
+
+  public void OnResourceExecuting(ResourceExecutingContext context)
+  {
+      if (_result != null)
+      {
+          context.Result=_result;
+      }
+      context.HttpContext.Items[GlobalValues.ItemKey]= "Cks";
+  }
+~~~
+
 ## 04.15 webApi-SourceFilter
 - 前端传进来的数据，在与控制器绑定模型之前，只是2进制数据。绑定后才从混乱的原始数据变成了有序的业务对象。
 ### HttpContext 
