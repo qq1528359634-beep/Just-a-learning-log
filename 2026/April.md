@@ -1,3 +1,39 @@
+## 04.18 异常处理过滤器
+
+- 只能捕获ActionFilter和Action中的异常
+- 如何使用异常处理过滤器捕获异常日志
+~~~
+ public ILogger<MyNewController> _Logger { get; }
+
+ public MyNewController(ILogger<MyNewController> logger)
+ {
+     this._Logger = logger;
+ }
+
+ public string GetUserName(long id, string? showCN)
+ {
+     _Logger.LogInformation("information");
+     throw new Exception("controller.");
+~~~
+- 如果想要在异常过滤器中使用构造函数，则想要使用TypeFilter
+- TypeFilter是对ServiceFilter的在封装，ServiceFilter想要手动注册服务到容器中而TypeFilter可以自动注册服务
+~~~
+public class MyExceptionFilterAttribute : Attribute, IExceptionFilter
+{
+    private readonly ILogger<MyNewController> _logger;
+
+    public MyExceptionFilterAttribute(ILogger<MyNewController> logger)
+    {
+        this._logger = logger;
+    }
+
+    public void OnException(ExceptionContext context)
+    {   _logger.LogError(context.Exception.Message);
+        //context.Exception.Message;
+    }
+}
+~~~
+
 ## 04.17 webApi-授权过滤器的使用
 - 授权过滤器只有头没有尾，他的作用只有一个那就是授权
 	JWT用户令牌
