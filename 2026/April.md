@@ -1,3 +1,28 @@
+## 04.30
+- 对中间件进行封装
+~~~
+//未封装之前调用
+app.UseMiddleware<ExceptionHandleMiddleware>();
+app.UseMiddleware<CustomeHandleMiddleware>();
+//封装之后调用
+app.UseCustomHandle().UseExceptionHandle();
+//封装
+public static class WebApplicationExtension
+{
+    public static WebApplication UseCustomHandle(this WebApplication app)
+    {
+        app.UseMiddleware<CustomeHandleMiddleware>();
+        return app;
+    }
+    public static WebApplication UseExceptionHandle(this WebApplication app)
+    {
+        app.UseMiddleware<ExceptionHandleMiddleware>();
+        return app;
+    }
+}
+
+~~~
+
 ## 04.26 手写中间件
 - 传入参数RequestDelegate  next，向下传递http.context
 - 中间件“约定优于配置”。中间件不需要任何基类或者接口只要满足以下条件即可
